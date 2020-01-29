@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "387690142352",
+    "firebase_url": "https://locu-15eca.firebaseio.com",
+    "project_id": "locu-15eca",
+    "storage_bucket": "locu-15eca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:387690142352:android:25314793dd09d791501615",
+        "android_client_info": {
+          "package_name": "com.example.locus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "387690142352-rmuqqjnmg5q33f2i7le35p7oqli2jtam.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.locus",
+            "certificate_hash": "f223cde03cbcc7c631cfb7d96e633b58e23a1b3b"
+          }
+        },
+        {
+          "client_id": "387690142352-v9ojau5kove1iripmmpik09cve68uimv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZqDL_7v5GYxPY9z8o58O7k6LOhAbPQO8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "387690142352-v9ojau5kove1iripmmpik09cve68uimv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

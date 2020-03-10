@@ -1,8 +1,6 @@
 package com.example.locus;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,11 +16,11 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.locus";
-
+    /*
     //firebase
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("message");
-
+    */
 
 
 
@@ -32,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        /*
         //firebase
         myRef.setValue("Hello, World!");
         myRef.addValueEventListener(new ValueEventListener() {
@@ -50,15 +48,20 @@ public class MainActivity extends AppCompatActivity {
                 Log.w(EXTRA_MESSAGE, "Failed to read value.", error.toException());
             }
         });
+        */
     }
+
 
     public void sendMessage(View view) {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
+        /*
         EditText editText = (EditText) findViewById(R.id.editText);
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
+        */
         startActivity(intent);
     }
+
 
 
 

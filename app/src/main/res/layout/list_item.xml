@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp">
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="name"
+                android:layout_margin="5dp"/>
+
+            <TextView
+                android:id="@+id/tv_sensor1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="sensor1"
+                android:layout_margin="5dp"/>
+
+            <TextView
+                android:id="@+id/tv_sensor2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="sensor2"
+                android:layout_margin="5dp"/>
+            <TextView
+                android:id="@+id/tv_sensor3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="sensor3"
+                android:layout_margin="5dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

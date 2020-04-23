@@ -29,13 +29,20 @@ public class DisplayMessageActivity extends AppCompatActivity {
     private ArrayList<Location> arrayList;
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
+    private TextView waitTime;
+    public String location_name;
+    public int school_position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_message);
 
+        school_position = ((FirstPageActivity)FirstPageActivity.context).school_position;
+        location_name = ((MainActivity)MainActivity.context).location_name;
+
         recyclerView = findViewById(R.id.recyclerView);
+        waitTime = findViewById(R.id.waitTime);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -54,7 +61,31 @@ public class DisplayMessageActivity extends AppCompatActivity {
                     //only add specific location's data
 
                     Location location = snapshot.getValue(Location.class);
-                    arrayList.add(location);
+                    if (location.getName().equals(location_name)) {
+                        arrayList.add(location);
+                        //set waiting time
+                        if (location.getSensor1() < 100) {
+                            waitTime.setText("less than 5 minutes");
+                        }
+                        else if (location.getSensor1() < 200) {
+                            waitTime.setText("less than 10 minutes");
+                        }
+                        else if (location.getSensor1() < 300) {
+                            waitTime.setText("less than 20 minutes");
+                        }
+                        else if (location.getSensor1() < 400) {
+                            waitTime.setText("less than 30 minutes");
+                        }
+                        else if (location.getSensor1() < 500) {
+                            waitTime.setText("less than 40 minutes");
+                        }
+                        else {
+                            waitTime.setText("Line is full");
+                        }
+                    }
+                }
+                if (arrayList.isEmpty()) {
+                    waitTime.setText("Service not available");
                 }
                 adapter.notifyDataSetChanged();
             }

@@ -24,10 +24,11 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     public int school_position;
-    public int location_position;
+    public String location_name;
     public static Context context;
 
     private ListView location_list;
+    private ArrayList<String> locations = new ArrayList<>();
     /*
     //firebase
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -47,12 +48,10 @@ public class MainActivity extends AppCompatActivity {
         school_position = ((FirstPageActivity)FirstPageActivity.context).school_position;
 
         //add locations to location_list
-        ArrayList<String> locations = new ArrayList<>();
-        locations.add("" + school_position);
         switch (school_position) {
             case 0:
                 //GaTech
-                locations.add("Panda Express");
+                locations.add("PandaExpress");
                 locations.add("Subway");
                 locations.add("Twisted Taco");
                 locations.add("Chick-fil-a");
@@ -70,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), DisplayMessageActivity.class);
-                location_position = position;
+                location_name = locations.get(position);
                 context = tmp;
                 startActivity(intent);
             }

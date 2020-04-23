@@ -34,8 +34,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
         holder.tv_name.setText(arrayList.get(position).getName());
         holder.tv_sensor1.setText(String.valueOf(arrayList.get(position).getSensor1()));
-        //holder.tv_sensor2.setText(String.valueOf(arrayList.get(position).getSensor2()));
-        //holder.tv_sensor3.setText(String.valueOf(arrayList.get(position).getSensor3()));
+        holder.tv_sensor2.setText(String.valueOf(arrayList.get(position).getSensor2()));
+        holder.tv_sensor3.setText(String.valueOf(arrayList.get(position).getSensor3()));
     }
 
     @Override
@@ -46,15 +46,15 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     public class CustomViewHolder extends RecyclerView.ViewHolder {
         TextView tv_name;
         TextView tv_sensor1;
-        //TextView tv_sensor2;
-        //TextView tv_sensor3;
+        TextView tv_sensor2;
+        TextView tv_sensor3;
 
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
             this.tv_name = itemView.findViewById(R.id.tv_name);
             this.tv_sensor1 = itemView.findViewById(R.id.tv_sensor1);
-            //this.tv_sensor2 = itemView.findViewById(R.id.tv_sensor2);
-            //this.tv_sensor3 = itemView.findViewById(R.id.tv_sensor3);
+            this.tv_sensor2 = itemView.findViewById(R.id.tv_sensor2);
+            this.tv_sensor3 = itemView.findViewById(R.id.tv_sensor3);
         }
     }
 }

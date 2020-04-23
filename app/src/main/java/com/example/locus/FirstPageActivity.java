@@ -28,16 +28,17 @@ public class FirstPageActivity extends AppCompatActivity {
         final FirstPageActivity tmp = this;
         setContentView(R.layout.activity_first_page);
         ArrayList<String> schools = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            schools.add("School " + i);
-        }
+        schools.add("Georgia Institute of Technology");
+        schools.add("Emory University");
+
+
         school_list = findViewById(R.id.school_list);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, schools);
         school_list.setAdapter(adapter);
         school_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(FirstPageActivity.this, position + " is clicked", Toast.LENGTH_SHORT).show();
+
 
                 //send data to next activity
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);

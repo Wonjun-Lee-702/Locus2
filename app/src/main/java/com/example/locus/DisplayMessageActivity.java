@@ -51,6 +51,8 @@ public class DisplayMessageActivity extends AppCompatActivity {
                 //download data
                 arrayList.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    //only add specific location's data
+
                     Location location = snapshot.getValue(Location.class);
                     arrayList.add(location);
                 }

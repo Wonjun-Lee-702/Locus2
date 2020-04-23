@@ -1,21 +1,33 @@
 package com.example.locus;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 //import android.
 
 public class MainActivity extends AppCompatActivity {
-    public static final String EXTRA_MESSAGE = "com.example.locus";
+    public int school_position;
+    public int location_position;
+    public static Context context;
+
+    private ListView location_list;
     /*
     //firebase
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -29,41 +41,39 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final MainActivity tmp = this;
 
-        /*
-        //firebase
-        myRef.setValue("Hello, World!");
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                String value = dataSnapshot.getValue(String.class);
-                Log.d(EXTRA_MESSAGE, "Value is: " + value);
-            }
+        //get school info
+        school_position = ((FirstPageActivity)FirstPageActivity.context).school_position;
 
+        //add locations to location_list
+        ArrayList<String> locations = new ArrayList<>();
+        locations.add("" + school_position);
+        switch (school_position) {
+            case 0:
+                //GaTech
+                locations.add("Panda Express");
+                locations.add("Subway");
+                locations.add("Twisted Taco");
+                locations.add("Chick-fil-a");
+                break;
+            case 1:
+                //Emory
+                locations.add("Romeo's Pizza");
+                locations.add("Maru");
+                break;
+        }
+        location_list = findViewById(R.id.location_list);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, locations);
+        location_list.setAdapter(adapter);
+        location_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w(EXTRA_MESSAGE, "Failed to read value.", error.toException());
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getApplicationContext(), DisplayMessageActivity.class);
+                location_position = position;
+                context = tmp;
+                startActivity(intent);
             }
         });
-        */
     }
-
-
-    public void sendMessage(View view) {
-        Intent intent = new Intent(this, DisplayMessageActivity.class);
-        /*
-        EditText editText = (EditText) findViewById(R.id.editText);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        */
-        startActivity(intent);
-    }
-
-
-
-
-
 }

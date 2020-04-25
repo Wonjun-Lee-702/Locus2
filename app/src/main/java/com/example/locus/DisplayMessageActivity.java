@@ -61,7 +61,10 @@ public class DisplayMessageActivity extends AppCompatActivity {
                     //only add specific location's data
 
                     Location location = snapshot.getValue(Location.class);
+                    System.out.println(location.getName());
                     if (location.getName().equals(location_name)) {
+                        System.out.println(school_position);
+                        System.out.println(location_name);
                         arrayList.add(location);
                         //set waiting time
                         if (location.getSensor1() < 100) {

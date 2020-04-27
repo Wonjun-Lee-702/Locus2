@@ -35,7 +35,8 @@ public class FirstPageActivity extends AppCompatActivity {
 //        ArrayList<ImageButton> schools = new ArrayList<>();
 
         for (int id: buttonIDs) {
-            ImageButton button = (ImageButton) findViewById(id);
+//            ImageButton button = (ImageButton) findViewById(id);
+            Button button = findViewById(id);
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

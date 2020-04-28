@@ -67,23 +67,27 @@ public class DisplayMessageActivity extends AppCompatActivity {
                         System.out.println(location_name);
                         arrayList.add(location);
                         //set waiting time
-                        if (location.getSensor1() < 100) {
-                            waitTime.setText("less than 5 minutes");
+                        int distance = location.getSensor1();
+                        if (distance < 100) {
+                            waitTime.setText("Line is full");
                         }
-                        else if (location.getSensor1() < 200) {
-                            waitTime.setText("less than 10 minutes");
+                        else if (distance < 200) {
+                            waitTime.setText("less than 15 minutes");
                         }
-                        else if (location.getSensor1() < 300) {
-                            waitTime.setText("less than 20 minutes");
+                        else if (distance < 300) {
+                            waitTime.setText("less than 12 minutes");
                         }
-                        else if (location.getSensor1() < 400) {
-                            waitTime.setText("less than 30 minutes");
+                        else if (distance < 400) {
+                            waitTime.setText("less than 9 minutes");
                         }
-                        else if (location.getSensor1() < 500) {
-                            waitTime.setText("less than 40 minutes");
+                        else if (distance < 500) {
+                            waitTime.setText("less than 6 minutes");
+                        }
+                        else if (distance < 600){
+                            waitTime.setText("less than 3 minutes");
                         }
                         else {
-                            waitTime.setText("Line is full");
+                            waitTime.setText("line is empty");
                         }
                     }
                 }
